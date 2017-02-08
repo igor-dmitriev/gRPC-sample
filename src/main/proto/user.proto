@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.proto";
+import "google/protobuf/wrappers.proto";
+
+package helloworld;
+
+service UserService {
+    rpc FindUserByName (UserRequest) returns (User) {
+    }
+}
+
+message UserRequest {
+    google.protobuf.StringValue name = 1;
+}
+
+message User {
+    google.protobuf.StringValue name = 1;
+    google.protobuf.StringValue surname = 2;
+    int32 age = 3;
+}
